@@ -1,0 +1,299 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //3.5
+            /*
+                Console.Write("N = ");
+                int n = int.Parse(Console.ReadLine());
+                int i = 10;
+                do
+                {
+                    i--;
+                    if (i % 2 == 0)
+                        Console.Write(" " + i); //выводим i на экран, затем увеличиваем его на 1
+                } while (n <= i);           //пока i меньше или равно n
+                */
+            /*
+            //3.2
+            int Ball = 0;
+            Console.Write("x = ");
+            float x = float.Parse(Console.ReadLine());
+            Console.Write("y = ");
+            float y = float.Parse(Console.ReadLine());
+            if (x * x + y * y <= 1) Ball = 10;  //окружность с радиусом 1
+            else if (x * x + y * y <= 4) Ball = 5;  //окружность с радиусом 2
+            else if (x * x + y * y <= 9) Ball = 1;
+            else Ball = 0;
+            Console.WriteLine("Ball = "+Ball);
+            */
+            /*
+            //3.3
+            Console.Write("OPER = ");
+            char oper = char.Parse(Console.ReadLine());
+            bool ok = true;
+            Console.Write("A = ");
+            int a = int.Parse(Console.ReadLine());
+            Console.Write("B = ");
+            int b = int.Parse(Console.ReadLine());
+            float res = 0;
+            switch (oper)
+            {
+                case '+': res = a + b; goto case '-';   //1
+                case '-': res = a - b; break;
+                case '*': res = a * b; break;
+                case ':': if (b != 0)
+                    {
+                        res = (float)a / b; break;
+                    }
+                    else goto default;
+                default: ok = false; break;
+            }
+            if (ok) Console.WriteLine("{0} {1} {2} = {3}", a, oper, b, res);
+            else Console.WriteLine("error");
+            */
+            /*
+            //3.1
+            Console.Write("x = ");
+            float x = float.Parse(Console.ReadLine());
+            Console.Write("y =");
+            float y = float.Parse(Console.ReadLine());
+            if (x > y) Console.WriteLine("max = "+x);
+            else Console.WriteLine("max = "+y);
+            */
+            //3.4
+            //1
+            /*
+            Console.Write("N = ");
+            int n = int.Parse(Console.ReadLine());
+            int i = 10;
+            while (n <= i)           //пока i меньше или равно n
+                Console.Write(" "+i--); //выводим i на экран, затем увеличиваем его на 1         
+                */
+            //2
+            /*
+        Console.Write("N = ");
+        int n = int.Parse(Console.ReadLine());
+        int i = 10;
+        while (n <= i)
+        {         //пока i меньше или равно n
+            i--; //выводим i на экран, затем увеличиваем его на 1     
+            if (i % 2 != 0)
+                Console.Write(" " + i);
+        }*/
+
+
+            //3.6
+            /*
+            Console.Write("N = ");
+            int n = int.Parse(Console.ReadLine());
+            int k=0;
+            for (int i = 10; i >= n; i--)     //блок модификации пустой 
+                //k = i * i;
+                Console.Write(" " +i);
+                */
+            //3.7
+            /*
+            Console.Write("n=");
+            int n = int.Parse(Console.ReadLine());
+            Console.Write("m=");
+            int m = int.Parse(Console.ReadLine());
+            for ( int i = 1; i <= m; ++i, Console.WriteLine())     //1
+                for (int j = 1; j <= n; ++j)
+                    Console.Write(" " +2);
+                    */
+            //2.6
+            /*
+            for (int i = 40; i <= 80; ++i, Console.WriteLine())
+            {
+                for (int j = 1; j <= 10; ++j)
+                    Console.Write(" " +i);
+            }
+            */
+            //2.1
+            /*
+            Console.Write("Размерность доски: ");
+            int n = int.Parse(Console.ReadLine());
+            if (n % 2 == 0) Console.WriteLine("Черных: {0}", n / 2 * n);
+            else Console.WriteLine("Черных: {0}", (n - 1) / 2 * (n - 1) + n);
+            Console.Write("k = ");
+            int k = int.Parse(Console.ReadLine());
+            Console.Write("m = ");
+            int m = int.Parse(Console.ReadLine());
+            switch (colour(k, m, n))
+            {
+                case 0: Console.WriteLine("Ячейка {0}x{1} - черная", k, m); break;
+                case 1: Console.WriteLine("Ячейка {0}x{1} - белая", k, m); break;
+                case 2: Console.WriteLine("Такой ячейки нет, попробуйте ввести другую");
+                    Console.Write("k = ");
+                    k = int.Parse(Console.ReadLine());
+                    Console.Write("m = ");
+                    m = int.Parse(Console.ReadLine());
+                    break;
+            }
+            Console.WriteLine("k1 = ");
+            int k1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("m1 = ");
+            int m1 = int.Parse(Console.ReadLine());
+            while (!(k1 <= n && m1 <= n))
+            {
+                Console.WriteLine("Такой ячейки нет, попробуйте ввести другую");
+                Console.WriteLine("k1 = ");
+                k1 = int.Parse(Console.ReadLine());
+                Console.WriteLine("m1 = ");
+                m1 = int.Parse(Console.ReadLine());
+            }
+            if (colour(k, m, n) == colour(k1, m1, n)) Console.WriteLine("Ячейки {0}x{1} и {2}x{3} одинаковые",k,m,k1,m1);
+            else Console.WriteLine("Ячейки {0}x{1} и {2}x{3} разные",k,m,k1,m1);
+            Console.WriteLine("Введите coni или ferz или slon или ladia или peshka");
+            string figure = Console.ReadLine();
+            switch (figure)
+            {
+                case "coni": shahconi(k,m,k1,m1); break;
+                case "ferz": shahferz(k, m, k1, m1); break;
+                case "slon": shahslon(k, m, k1, m1); break;
+                case "ladia": shahladia(k, m, k1, m1); break;
+                case "peshka": shahpeshka(k, m, k1, m1); break;
+            }
+            */
+            //задача 2.2
+            /*
+            Console.WriteLine(">Введите дату в формате dd.MM.yyyy:");
+            DateTime dt = DateTime.Parse(Console.ReadLine()); //вводим дату и время
+            Console.WriteLine(" Дней прошло с начала года:" + dt.DayOfYear);  
+            int NextYear = dt.Year + 1;  //узнаем какой год следующий       
+            DateTime NextNewYear = new DateTime(NextYear, 1, 1);  //задаем следующему году 1 день 1 месяц 
+            //и следующий год относительно заданной даты
+            NextNewYear = new DateTime(NextNewYear.Ticks - 1);
+            int days = NextNewYear.DayOfYear - dt.DayOfYear; //вычисляем количество оставшихся дней после начала года
+            Console.WriteLine(" Дней осталось до конца года:" + days);
+            Console.WriteLine(" Дата предыдущего дня:" + dt.AddDays(-1).ToShortDateString());
+            Console.WriteLine(" Дата следующего дня:" + dt.AddDays(+1).ToShortDateString());
+            */
+            //задача 2.3
+            /*
+            for (int i = 100; i <= 999; i++)
+            {
+                int a = i % 10;
+                int b = (i / 10) % 10;
+                int c = (i / 100) % 10;
+                int tmp = a * a * a + b * b * b + c * c * c;
+                if (i == tmp)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+            */
+            //2
+            /*
+            Console.WriteLine("Введите число =");
+            int k = int.Parse(Console.ReadLine());
+            int g = k % 10;
+            if (g == 7)
+            {
+                Console.WriteLine("{0} данное целое число оканчивается цифрой 7", k);
+            }
+            else Console.WriteLine("{0} данное целое число НЕ оканчивается цифрой 7", k);
+            */
+            //2.4
+            /*
+
+            int n = 30;
+            int m = 5;
+
+            int min = n * m;
+            Console.WriteLine(min);
+
+            int max = n / m;
+            Console.WriteLine(max);
+            */
+            //Секция контроля....
+            //1
+            /*
+            int a, b;
+            Console.Write("Enter a: ");
+            a = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter b: ");
+            b = Convert.ToInt32(Console.ReadLine());
+            if (a < 0)
+                a = -a;
+            if (b < 0)
+                b = -b;
+            Console.WriteLine("Среднее геометрическое модулей числа a и b: {0:F}", Math.Sqrt(a * b));
+            */
+            //3
+            /*
+            Console.Write("x =");
+            float x = float.Parse(Console.ReadLine());
+            Console.Write("y =");
+            float y = float.Parse(Console.ReadLine());
+            if (x * x + y * y < 64 && x < 0 && x * x + y * y >9)
+                Console.WriteLine("внутри");
+            else if (x * x + y * y < 9 || x > 0 || x * x + y * y > 64)
+                Console.WriteLine("вне");
+            else Console.WriteLine("на границе");
+            */
+            //4
+            /*
+            Console.Write("n =");
+            byte n = byte.Parse(Console.ReadLine());
+            switch (n)
+            {
+                case 6: Console.WriteLine("шестерка"); break;
+                case 7: Console.WriteLine("семерка"); break;
+                case 8: Console.WriteLine("восьмерка"); break;
+                case 9: Console.WriteLine("девятка"); break;
+                case 10: Console.WriteLine("десятка"); break;
+                case 11: Console.WriteLine("валет"); break;
+                case 12: Console.WriteLine("дама"); break;
+                case 13: Console.WriteLine("король"); break;
+                case 14: Console.WriteLine("туз"); break;
+                default: Console.WriteLine("ВЫ ОШИБЛИСЬ"); break;
+            }
+            */
+            //5
+            /*
+            Console.Write("n =");
+            byte n = byte.Parse(Console.ReadLine());
+
+            Console.Write("while: ");
+            float i = 2;
+            while (i <= n)
+            {
+                Console.WriteLine("{0}={1} ",i,i*25.4);
+                i += 2;
+            }
+
+            Console.WriteLine("do while: ");
+            i = 2;
+            do
+            {
+                Console.WriteLine("{0}={1} ", i, i * 25.4);
+                i += 2;
+            }
+            while (i <= n);
+            Console.WriteLine("For: ");
+            for (i = 2; i <= n; i += 2)
+            {
+                Console.WriteLine("{0}={1} ", i, i * 25.4);
+                
+            }
+            */
+
+
+
+
+        }
+        //тут 
+
+    }
+}
+
